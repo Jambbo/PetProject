@@ -39,7 +39,7 @@ public class UserController {
         UserDTO userDTO = userFacade.usertoUserDTO(user);
         return new ResponseEntity<>(userDTO,HttpStatus.OK);
     }
-    @PutMapping
+    @PostMapping("/update")
     public ResponseEntity<Object> updateUser(@Valid @RequestBody UserDTO userDTO, BindingResult bindingResult, Principal principal){
         ResponseEntity<Object> errors = responseErrorValidation.mapValidationService(bindingResult);
         if(!ObjectUtils.isEmpty(errors))return errors;
@@ -48,6 +48,6 @@ public class UserController {
 
         UserDTO userUpdated = userFacade.usertoUserDTO(user);
         return new ResponseEntity<>(userUpdated,HttpStatus.OK);
-        
+
     }
 }
