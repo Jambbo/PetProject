@@ -39,8 +39,8 @@ public class CommentService {
         Comment comment = new Comment();
         comment.setPost(post);
         comment.setUserId(user.getId());
+        comment.setUsername(user.getUsername());
         comment.setMessage(commentDTO.getMessage());
-        comment.setUsername(commentDTO.getUsername());
         LOG.info("Saving comment for Post: {}",post.getId());
         return commentRepository.save(comment);
     }
